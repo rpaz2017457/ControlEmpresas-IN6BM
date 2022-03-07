@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const app = require("./app");
+var usuariosController = require("./src/controllers/usuarios.controller");
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -13,5 +14,6 @@ mongoose
     app.listen(3000, function () {
       console.log("EL PROGRAMA ESTA CORRIENDO EN EL PUERTO 3000");
     });
+    usuariosController.agregarAlAdminDefault();
   })
   .catch((err) => console.log(err));
