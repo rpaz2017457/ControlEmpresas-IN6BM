@@ -8,4 +8,4 @@ var empleadoSchema = Schema({
   idEmpres: { type: Schema.Types.ObjectId, ref: "usuarios" },
 });
 
-module.exports = mmongoose.model("empleados", empleadoSchema);
+module.exports = mongoose.model("empleados", empleadoSchema);
