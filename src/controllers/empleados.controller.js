@@ -1,4 +1,3 @@
-const { ClientRequest } = require("http");
 const Empleado = require("../models/empleados.model");
 
 function agregarEmpleados(req, res) {
@@ -23,19 +22,19 @@ function agregarEmpleados(req, res) {
       },
       (err, EmpleadoNuevo) => {
         if (EmpleadoNuevo.length == 0) {
-          empleadoModel.save((err, EmpleadoNuevo) => {
+          empleadoModel.save((err, EmpleadoH) => {
             if (err)
               return res
                 .status(500)
                 .send({ message: "HA OCURRIDO UN ERROR EN LA SOLICITUD" });
-            if (!EmpleadoNuevo)
+            if (!EmpleadoH)
               return res
                 .status(500)
                 .send({
                   mensaje:
                     "ALGO SALIO MAL AL INTENTAR AGREGAR UN EMPLEADO, INTENTELO DE NUEVO",
                 });
-            return res.status(200).send({ Empleados: EmpleadoNuevo });
+            return res.status(200).send({ Empleados: EmpleadoH });
           });
         } else {
           return res
